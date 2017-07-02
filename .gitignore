@@ -56,3 +56,12 @@ typings/
 
 # dotenv environment variables file
 .env
+
+* build files
+dist/
+
+* mac
+.DS_Store
+
+* project notes
+notes/
