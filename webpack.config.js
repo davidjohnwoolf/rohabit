@@ -12,28 +12,23 @@ module.exports = {
     devtool: 'source-map',
     entry: './src/js/main.js',
     module: {
-        rules: [{
-            test: /\.sass$/,
-            use: extractSass.extract({
-                use: [{
-                    loader: 'css-loader'
-                }, {
-                    loader: 'sass-loader'
-                }]
-            })
-        }],
-        loaders: [
-            {
-                test: /\.js$/,
-                loaders: ['babel-loader'],
-                exclude: '/node_modules/'
-            },
+        rules: [
             {
                 test: /\.sass$/,
-                loaders: ['style-loader', 'css-loader', 'sass-loader'],
-                exclude: '/node_modules/'
+                use: extractSass.extract({
+                    use: [
+                        { loader: 'css-loader' },
+                        { loader: 'sass-loader' }
+                    ]
+                }),
+                exclude: /node_modules/
+            },
+            {
+                test: /\.(js|jsx)$/,
+                loaders: ['babel-loader'],
+                exclude: /node_modules/
             }
-        ]
+        ],
     },
     plugins: [
         extractSass,
