@@ -1,12 +1,17 @@
 import React from 'react';
+import Header from './header';
 
-export default class App extends React.Component {
+class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         return (
-            <header id="header">
-                <h1>Rohabit</h1>
-            </header>
+            <Header value="Yo" />
         );
     }
 };
+
+export default App;
