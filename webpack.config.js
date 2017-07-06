@@ -10,7 +10,7 @@ const extractSass = new ExtractTextPlugin({
 
 module.exports = {
     devtool: 'source-map',
-    entry: './src/js/main.js',
+    entry: './src/js/index.js',
     module: {
         rules: [
             {

@@ -1,17 +1,17 @@
 import React from 'react';
-import Header from './header';
+import Header from './Header';
+import HomePage from './HomePage';
 
 class App extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
-            <Header value="Rohabit" />
+            <div className="inner-wrap">
+                <Header value="Rohabit" />
+                <HomePage />
+            </div>
         );
     }
-};
+}
 
 export default App;
