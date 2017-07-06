@@ -9,7 +9,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <Header value="Yo" />
+            <Header value="Rohabit" />
         );
     }
 };
