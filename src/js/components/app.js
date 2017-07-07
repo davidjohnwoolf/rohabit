@@ -1,28 +1,21 @@
 import React from 'react';
-import Header from './Header';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import HomePage from './HomePage';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import About from './About';
 
-class App extends React.Component {
+export default class App extends React.Component {
+	render() {
 
-    render() {
-        return (
-	    <Router>
-                <Header value="Rohabit" />
-                <div>
-                    <ul>
-                        <li><Link to="/">Root</Link></li>
-                        <li><Link to="/home">Home</Link></li>
-                    </ul>
-                    <Route path="/home" component={ HomePage } />
-                </div>
-            </Router>
-        );
-    }
+		return (
+			<Router>
+				<div>
+					<Link to="/">Home</Link>
+					<Link to="/about">About</Link>
+
+					<Route path="/" component={ HomePage } />
+					<Route path="/about" component={ About } />
+				</div>
+			</Router>
+		);
+	}
 }
-
-export default App;
