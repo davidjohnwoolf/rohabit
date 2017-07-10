@@ -5,7 +5,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
-import Habit from './components/habit/Habit';
+import Habits from './components/habit/Habits';
 
 render(
 	<Router>
@@ -19,7 +19,7 @@ render(
 
 
 			<Route exact path="/" component={ Home } />
-			<Route path="/habit" component={ Habit } />
+			<Route path="/habit" component={ Habits } />
 		</div>
 	</Router>,
 	document.getElementById('app')
