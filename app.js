@@ -2,24 +2,26 @@ const express = require('express')
 const app = express();
 const path = require('path');
 const port = process.env.PORT || 3000;
-const MongoClient = require('mongodb').MongoClient;
-const databaseUrl = 'mongodb://localhost:27017/rohabit';
+const mongoose = require('mongoose');
 
-//set space for database in global scope
-let db;
+const calendars = require('./controllers/calendars');
 
+// database connection
+const database = 'mongodb://localhost:27017/rohabit';
+mongoose.connect(database);
+
+//get default connection
+const db = mongoose.connection;
+
+// bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+// middleware
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('/habits', (req, res) => {
-	db.collection('habits').find().toArray((err, results) => res.send(results));
-});
+app.use('/', calendars);
 
-MongoClient.connect(databaseUrl, (err, database) => {
-	if (err) return console.log(err);
 
-	db = database;
-
-	app.listen(3000, () => {
-		console.log('listening on ' + port);
-	});
+app.listen(3000, () => {
+	console.log('listening on ' + port);
 });
