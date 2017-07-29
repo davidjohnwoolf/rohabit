@@ -19,22 +19,24 @@ const UserSchema = new Schema({
 	}
 });
 
-// password hash before save
-UserSchema.pre('save', (next) => {
-  const user = this;
+// hash password before save
+UserSchema.pre('save', function(next) {
+	const user = this;
 
-  if (!user.isModified('password')) return next();
+	if (user.isModified('password')) {
+		bcrypt.genSalt(10, (err, salt) => {
+			if (err) return next(err);
 
-  bcrypt.genSalt(10, (err, salt) => {
-    if (err) return next(err);
+			bcrypt.hash(user.password, salt, (err, hash) => {
+				if (err) return next(err);
 
-    bcrypt.hash(user.password, salt, (err, hash) => {
-      if (err) return next(err);
+				user.password = hash;
+				next();
+			});
+		});
 
-      user.password = hash;
-      next();
-    });
-  });
+	} else return next();
+
 });
 
 module.exports = mongoose.model('User', UserSchema);
