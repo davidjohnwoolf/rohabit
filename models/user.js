@@ -3,9 +3,20 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
 const UserSchema = new Schema({
-	username: { type: String, required: true },
-	email: { type: String, index: { unique: true }, match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ },
-	password: { type: String, required: true }
+	username: {
+		type: String,
+		required: true
+	},
+	email: {
+		type: String,
+		index: { unique: true },
+		match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+	},
+	password: {
+		type: String,
+		required: true,
+		match: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/
+	}
 });
 
 // password hash before save
