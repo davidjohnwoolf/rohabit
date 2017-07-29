@@ -11,6 +11,7 @@
   "author": "David Woolf <davidjohnwoolf@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "express": "^4.15.3",
     "mongodb": "^2.2.30",
     "mongoose": "^4.11.1",

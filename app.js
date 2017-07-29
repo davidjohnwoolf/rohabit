@@ -4,6 +4,7 @@ const path = require('path');
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 
+const users = require('./controllers/users');
 const calendars = require('./controllers/calendars');
 
 // database connection
@@ -19,6 +20,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // middleware
 app.use(express.static(path.join(__dirname, 'dist')));
 
+app.use('/', users);
 app.use('/', calendars);
 
 
