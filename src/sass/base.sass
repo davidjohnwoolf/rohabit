@@ -1,8 +1,17 @@
 // General Styles //
 
+$main-color: #2e64c3
+$secondary-color: #4a8bfc
+$white: #fff
+$black: #050505
+$gray: #777
+$lightgray: #ccc
+$red: #d43f3a
+
 body
     font-family: Futura, sans-serif
     padding: 1em 20%
+    font-size: 100%
 
 nav 
 	display: flex
@@ -16,7 +25,30 @@ nav
 		a
 			padding: 10px
 
-form
+h1
+	text-transform: uppercase
+
+// Form Styles //
+
+.form
 	.form-field
+		position: relative
+
 		input
 			display: block
+			padding: 10px
+			width: 100%
+			margin-bottom: 10px
+			border: 1px #light-gray solid
+
+	.form-submit
+		border: none
+		border-radius: none
+		background-color: $main-color
+		padding: 10px 20px
+		color: $white
+		transition: all 250ms
+
+		&:hover
+			background-color: $secondary-color
+			cursor: pointer

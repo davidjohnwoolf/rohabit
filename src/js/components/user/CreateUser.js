@@ -1,38 +1,37 @@
 import React from 'react';
 
 export default class CreateUser extends React.Component {
-	postUser() {
-		const form = new FormData(document.getElementById('form-create-user'));
+	postUser(e) {
+		e.preventDefault();
+
+		const formBody = new FormData(document.querySelector('.form-create-user'));
+
 		fetch("/user", {
 		  method: "POST",
-		  body: form
+		  body: formBody
 		});
 	}
 
 	render() {
 		return (
-			<div className="component-create-user">
-				<h1>Create User</h1>
-				<form id="form-create-user" onSubmit={ this.postUser }>
-					<div className="form-field">
-						<label htmlFor="username">Username</label>
-						<input type="text" name="username" id="username" />
+			<section className="component-create-user">
+				<h1>Create Account</h1>
+				<form className="form-create-user form">
+					<div className="form-field required">
+						<input type="text" name="username" id="username" placeholder="username *" />
 					</div>
 					<div className="form-field">
-						<label htmlFor="email">Email</label>
-						<input type="email" name="email" id="email" />
+						<input type="email" name="email" id="email" placeholder="email" />
 					</div>
-					<div className="form-field">
-						<label htmlFor="password">Password</label>
-						<input type="password" name="password" id="password" />
+					<div className="form-field required">
+						<input type="password" name="password" id="password" placeholder="password *" />
 					</div>
-					<div className="form-field">
-						<label htmlFor="passwordConfirmation">Password Confirmation</label>
-						<input type="password" name="passwordConfirmation" id="passwordConfirmation" />
+					<div className="form-field required">
+						<input type="password" name="passwordConfirmation" id="passwordConfirmation" placeholder="password confirmation *" />
 					</div>
-					<button>Create User</button>
+					<button className="form-submit" onSubmit={ this.postUser }>Submit</button>
 				</form>
-			</div>
+			</section>
 		);
 	}
 }
