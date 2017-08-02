@@ -29,7 +29,7 @@ export default class CreateUser extends React.Component {
 					<div className="form-field required">
 						<input type="password" name="passwordConfirmation" id="passwordConfirmation" placeholder="password confirmation *" />
 					</div>
-					<button className="form-submit" onSubmit={ this.postUser }>Submit</button>
+					<button className="form-submit" onSubmit={ this.postUser }>Create Account</button>
 				</form>
 			</section>
 		);
