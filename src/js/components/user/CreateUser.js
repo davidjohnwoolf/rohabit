@@ -14,7 +14,7 @@ export default class CreateUser extends React.Component {
 
 	render() {
 		return (
-			<section className="component-create-user">
+			<section className="content component-create-user">
 				<h1>Create Account</h1>
 				<form className="form-create-user form">
 					<div className="form-field required">
