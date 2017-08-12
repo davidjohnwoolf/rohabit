@@ -31,5 +31,5 @@ app.use('/users', users);
 
 
 app.listen(3000, () => {
-	console.log('and we\'re live on ' + port);
+	console.log('and we\'re live on ' + port + ' ' + process.env.JWT_SECRET);
 });
