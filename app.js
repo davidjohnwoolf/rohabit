@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 
 const users = require('./controllers/users');
-const calendars = require('./controllers/calendars');
+const sessions = require('./controllers/sessions');
 
 // database connection
 const database = 'mongodb://localhost:27017/rohabit';
@@ -21,7 +21,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/', users);
-app.use('/', calendars);
+app.use('/', sessions);
 
 
 app.listen(3000, () => {

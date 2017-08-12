@@ -17,7 +17,7 @@ router.get('/users', (req, res) => {
 });
 
 // create
-router.post('/user', (req, res) => {
+router.post('/users', (req, res) => {
 	console.log(res.body)
 	const user = new User(req.body);
 
