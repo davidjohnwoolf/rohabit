@@ -8,7 +8,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 // index
-router.get('/users', (req, res) => {
+router.get('/', (req, res) => {
 	User.find({}, (err, users) => {
 		if (err) return res.json(error);
 
@@ -17,7 +17,7 @@ router.get('/users', (req, res) => {
 });
 
 // create
-router.post('/users', (req, res) => {
+router.post('/', (req, res) => {
 	console.log(res.body)
 	const user = new User(req.body);
 

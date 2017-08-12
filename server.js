@@ -3,6 +3,8 @@ const app = express();
 const path = require('path');
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
+const expressJwt = require('express-jwt');
+const jwt = require('jsonwebtoken');
 
 const users = require('./controllers/users');
 const sessions = require('./controllers/sessions');
@@ -20,8 +22,8 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // middleware
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use('/', users);
 app.use('/', sessions);
+app.use('/users', users);
 
 
 app.listen(3000, () => {
