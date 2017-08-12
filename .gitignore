@@ -57,11 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
-* build files
+# build files
 dist/
 
-* mac
+# mac
 .DS_Store
 
-* project notes
+# project notes
 notes/
